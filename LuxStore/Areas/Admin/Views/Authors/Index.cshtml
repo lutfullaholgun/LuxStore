@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Author>
+
+@{
+    ViewData["Title"] = "Authors";
+}
+
+<div class="container-fluid px-lg-5">
+    <!-- Container Start -->
+    <div class="card shadow-lg border-0 rounded-lg mt-4">
+        <div class="card-header bg-primary text-white py-3">
+            <div class="row align-users-center justify-content-between">
+                <div class="col-12 col-md-6">
+                    <h3 class="mb-0">@ViewData["Title"]</h3>
+                </div>
+                <div class="col-12 col-md-6 text-end">
+                    <a asp-action="Create" class="btn btn-success">
+                        <i class="fas fa-user-plus"></i>
+                        <span class="d-none d-md-inline">Add New Author</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Img)</th>
+                            <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+                            <th>@Html.DisplayNameFor(model => model.LastName)</th>
+                            <th>@Html.DisplayNameFor(model => model.Description)</th>
+                            <th>Status</th>
+                            <th class="d-none d-xl-table-cell">@Html.DisplayNameFor(model => model.CreatedDate)</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="/Images/authors/@Html.DisplayFor(modeluser => user.Img)" width="30px" height="30px" alt="Resim Yok" />
+                                </td>
+                                <td>@Html.DisplayFor(modeluser => user.FirstName)</td>
+                                <td>@Html.DisplayFor(modeluser => user.LastName)</td>
+                                <td>@(string.IsNullOrEmpty(user.Description) ? "No Description" : string.Join(" ", user.Description.Split(" ").Take(10)) + "...")</td>
+
+
+                                <td>
+                                    @if (user.IsActive)
+                                    {
+                                        <span class="badge bg-success">Active</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">Inactive</span>
+                                    }
+                                </td>
+                                <td class="d-none d-xl-table-cell">@Html.DisplayFor(modeluser => user.CreatedDate)</td>
+                                <td>
+                                    <div class="d-flex gap-1 flex-wrap">
+                                        <a asp-action="Update" asp-route-id="@user.Id"
+                                           class="btn btn-sm btn-primary"
+                                           title="Update"
+                                           data-bs-toggle="tooltip">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a asp-action="Details" asp-route-id="@user.Id"
+                                           class="btn btn-sm btn-info"
+                                           title="Details"
+                                           data-bs-toggle="tooltip">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@user.Id"
+                                           class="btn btn-sm btn-danger"
+                                           title="Delete"
+                                           data-bs-toggle="tooltip">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer bg-light py-3">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <p class="mb-0 text-muted">Total Users: @Model.Count()</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -23,11 +23,4 @@
     <ProjectReference Include="..\Models\LuxStore.EntityLayer\LuxStore.EntityLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Views\AppUsers\" />
-    <Folder Include="Areas\Admin\Views\Authors\" />
-    <Folder Include="Areas\Admin\Views\Books\" />
-    <Folder Include="Areas\Admin\Views\Categories\" />
-  </ItemGroup>
-
 </Project>

@@ -1,0 +1,116 @@
+﻿@model Books
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mt-4">Create New Book</h2>
+            <h5 class="mb-0">Book Information</h5>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td><label asp-for="Name" class="control-label"></label></td>
+                            <td>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="Description" class="control-label"></label></td>
+                            <td>
+                                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="Image" class="control-label"></label></td>
+                            <td>
+                                <input asp-for="Image" type="file" class="form-control" accept="image/*" />
+                                <span asp-validation-for="Image" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="Price" class="control-label"></label></td>
+                            <td>
+                                <input asp-for="Price" class="form-control" />
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="BookCode" class="control-label"></label></td>
+                            <td>
+                                <input asp-for="BookCode" class="form-control" />
+                                <span asp-validation-for="BookCode" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="Stock" class="control-label"></label></td>
+                            <td>
+                                <input asp-for="Stock" class="form-control" />
+                                <span asp-validation-for="Stock" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="ISBN" class="control-label"></label></td>
+                            <td>
+                                <input asp-for="ISBN" class="form-control" />
+                                <span asp-validation-for="ISBN" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="CategoryId" class="control-label"></label></td>
+                            <td>
+                                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="AuthorId" class="control-label"></label></td>
+                            <td>
+                                <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.AuthorId"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="OrderNo" class="control-label"></label></td>
+                            <td>
+                                <input asp-for="OrderNo" class="form-control" />
+                                <span asp-validation-for="OrderNo" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="CreatedDate" class="control-label"></label></td>
+                            <td>
+                                <input asp-for="CreatedDate" class="form-control" type="date" />
+                                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Active</td>
+                            <td>
+                                <input class="form-check-input" asp-for="IsActive" />
+                                <label asp-for="IsActive" class="form-check-label"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Show on Home Page</td>
+                            <td>
+                                <input class="form-check-input" asp-for="IsHome" />
+                                <label asp-for="IsHome" class="form-check-label"></label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-success">Create</button>
+                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

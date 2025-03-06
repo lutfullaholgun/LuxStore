@@ -1,0 +1,85 @@
+﻿@model Author
+
+@{
+    ViewData["Title"] = "Author Details";
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+            <div class="card shadow-lg border-0 rounded mt-4">
+                <div class="card-header bg-info text-white py-3">
+                    <h4 class="mb-0 text-center">Author Details</h4>
+                </div>
+                <div class="card-body p-4">
+                    <div class="row g-3">
+                        <!-- Satır 1 -->
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <div class="form-control bg-light">@Model.FirstName</div>
+                                <label>@Html.DisplayNameFor(m => m.FirstName)</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <div class="form-control bg-light">@Model.LastName</div>
+                                <label>@Html.DisplayNameFor(m => m.LastName)</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <div class="form-control bg-light">@Model.CreatedDate</div>
+                                <label>@Html.DisplayNameFor(m => m.CreatedDate)</label>
+                            </div>
+                        </div>
+
+                        <!-- Durumlar -->
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <div class="form-control bg-light">
+                                    @if (Model.IsActive)
+                                    {
+                                        <span class="badge bg-success">Active</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">Inactive</span>
+                                    }
+                                </div>
+                                <label>Account Status</label>
+                            </div>
+                        </div>
+
+                        <!-- Resim ve Açıklama -->
+                        <div class="col-12 d-flex align-items-center">
+                            @if (!string.IsNullOrEmpty(Model.Img))
+                            {
+                                <div class="me-3">
+                                    <img src="/Images/@Model.Img" width="65" />
+                                </div>
+                            }
+                            <div>
+                                <label>@Html.DisplayNameFor(m => m.Description)</label>
+                                <div class="form-control bg-light p-2">
+                                    @(Model.Description?.Split(' ').Take(30).Aggregate((a, b) => a + " " + b) ?? "No description available.")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Butonlar -->
+                    <div class="row mt-4">
+                        <div class="col-12 d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Back to List
+                            </a>
+                            <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-info">
+                                <i class="fas fa-edit me-2"></i>Update Author
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,127 @@
+﻿@model AppUser
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+            <div class="card shadow-lg border-0 rounded mt-4">
+                <div class="card-header bg-info text-white py-3">
+                    <h4 class="mb-0 text-center">User Details</h4>
+                </div>
+                <div class="card-body p-4">
+                    <div class="row g-3">
+                        <!-- Satır 1 -->
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <div class="form-control bg-light">@Model.Name</div>
+                                <label>@Html.DisplayNameFor(m => m.Name)</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <div class="form-control bg-light">@Model.SurName</div>
+                                <label>@Html.DisplayNameFor(m => m.SurName)</label>
+                            </div>
+                        </div>
+
+                        <!-- Satır 2 -->
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <div class="form-control bg-light">@Model.Email</div>
+                                <label>@Html.DisplayNameFor(m => m.Email)</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <div class="form-control bg-light">@Model.Phone</div>
+                                <label>@Html.DisplayNameFor(m => m.Phone)</label>
+                            </div>
+                        </div>
+
+                        <!-- Satır 3 -->
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <div class="form-control bg-light">@Model.UserName</div>
+                                <label>@Html.DisplayNameFor(m => m.UserName)</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <div class="form-control bg-light">@Model.CreatedDate</div>
+                                <label>@Html.DisplayNameFor(m => m.CreatedDate)</label>
+                            </div>
+                        </div>
+
+                        <!-- Durumlar -->
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <div class="form-control bg-light">
+                                    @if (Model.IsActive)
+                                    {
+                                        <span class="badge bg-success">Active</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">Inactive</span>
+                                    }
+                                </div>
+                                <label>Account Status</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <div class="form-control bg-light">
+                                    @if (Model.IsAdmin)
+                                    {
+                                        <span class="badge bg-primary">Admin User</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-info">Regular User</span>
+                                    }
+                                </div>
+                                <label>User Role</label>
+                            </div>
+                        </div>
+
+                        <!-- Resim -->
+                        @if (!string.IsNullOrEmpty(Model.Image))
+                        {
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <div class="form-control bg-light p-2">
+                                        <img src="@Model.Image" alt="User image" class="img-thumbnail" style="max-height: 200px;" />
+                                    </div>
+                                    <label>@Html.DisplayNameFor(m => m.Image)</label>
+                                </div>
+                            </div>
+                        }
+
+                        <!-- Teknik Detaylar -->
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <div class="form-control bg-light">@Model.UserGuid</div>
+                                <label>User GUID</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Butonlar -->
+                    <div class="row mt-4">
+                        <div class="col-12 d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Back to List
+                            </a>
+                            <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-info">
+                                <i class="fas fa-edit me-2"></i>Update User
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

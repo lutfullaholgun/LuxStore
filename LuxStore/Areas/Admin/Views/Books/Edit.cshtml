@@ -1,0 +1,104 @@
+﻿@model LuxStore.EntityLayer.Entities.Books
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center">Edit Book</h1>
+    <h4 class="text-muted text-center">Update Book Details</h4>
+    <hr />
+
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-12">
+            <form asp-action="Edit" class="p-4 border rounded bg-light shadow">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label fw-bold"></label>
+                    <input asp-for="Name" class="form-control" placeholder="Enter book name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label fw-bold"></label>
+                    <textarea asp-for="Description" class="form-control" rows="3" placeholder="Enter book description"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Image" class="form-label fw-bold"></label>
+                    <input asp-for="Image" class="form-control" placeholder="Image URL" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Price" class="form-label fw-bold"></label>
+                        <input asp-for="Price" class="form-control" type="number" step="0.01" placeholder="Enter price" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="BookCode" class="form-label fw-bold"></label>
+                        <input asp-for="BookCode" class="form-control" placeholder="Enter book code" />
+                        <span asp-validation-for="BookCode" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Stock" class="form-label fw-bold"></label>
+                        <input asp-for="Stock" class="form-control" type="number" placeholder="Stock quantity" />
+                        <span asp-validation-for="Stock" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="ISBN" class="form-label fw-bold"></label>
+                        <input asp-for="ISBN" class="form-control" placeholder="Enter ISBN" />
+                        <span asp-validation-for="ISBN" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" asp-for="IsActive" />
+                    <label class="form-check-label" asp-for="IsActive"></label>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" asp-for="IsHome" />
+                    <label class="form-check-label" asp-for="IsHome"></label>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="CategoryId" class="form-label fw-bold"></label>
+                        <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.CategoryId"></select>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="AuthorId" class="form-label fw-bold"></label>
+                        <select asp-for="AuthorId" class="form-select" asp-items="ViewBag.AuthorId"></select>
+                        <span asp-validation-for="AuthorId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="OrderNo" class="form-label fw-bold"></label>
+                    <input asp-for="OrderNo" class="form-control" type="number" placeholder="Enter order number" />
+                    <span asp-validation-for="OrderNo" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="CreatedDate" class="form-label fw-bold"></label>
+                    <input asp-for="CreatedDate" class="form-control" type="date" />
+                    <span asp-validation-for="CreatedDate" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

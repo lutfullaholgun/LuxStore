@@ -1,0 +1,40 @@
+﻿@model LuxStore.EntityLayer.Entities.Books
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Kitap Resmi -->
+        <div class="col-md-4 text-center">
+            <img src="/Images/books/@Model.Image" class="img-fluid rounded shadow-sm" alt="@Model.Name" />
+        </div>
+
+        <!-- Kitap Bilgileri -->
+        <div class="col-md-8">
+            <h2 class="text-primary">@Model.Name</h2>
+            <h5 class="text-muted">@Model.Author.FirstName</h5>
+            <hr />
+
+            <!-- Açıklama -->
+            <p class="border rounded p-3 bg-light">@Model.Description</p>
+
+            <ul class="list-group mb-3">
+                <li class="list-group-item"><strong>Fiyat:</strong> @Model.Price ₺</li>
+                <li class="list-group-item"><strong>ISBN:</strong> @Model.ISBN</li>
+                <li class="list-group-item"><strong>Stok:</strong> @Model.Stock</li>
+                <li class="list-group-item"><strong>Kategori:</strong> @Model.Category.Name</li>
+                <li class="list-group-item"><strong>Kitap Kodu:</strong> @Model.BookCode</li>
+                <li class="list-group-item"><strong>Sıra No:</strong> @Model.OrderNo</li>
+                <li class="list-group-item"><strong>Oluşturulma Tarihi:</strong> @Model.CreatedDate.ToShortDateString()</li>
+                <li class="list-group-item"><strong>Durum:</strong> @(Model.IsActive ? "Aktif" : "Pasif")</li>
+                <li class="list-group-item"><strong>Ana Sayfada Göster:</strong> @(Model.IsHome ? "Evet" : "Hayır")</li>
+            </ul>
+
+            <!-- Butonlar -->
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning me-2">Düzenle</a>
+            <a asp-action="Index" class="btn btn-secondary">Listeye Dön</a>
+        </div>
+    </div>
+</div>
