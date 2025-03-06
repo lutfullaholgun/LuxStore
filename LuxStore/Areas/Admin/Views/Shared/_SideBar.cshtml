@@ -1,0 +1,41 @@
+﻿<div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <!--Profile image-->
+                <div class="d-flex justify-content-center mb-3 mt-4">
+                    <div class="text-center">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQG0PKdnGEE8EQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1702073972133?e=1744243200&v=beta&t=283QZFovl4OSGhlO5cT8mT9nTweR_o8Owoos_mfNhS8" class="border border-3 border rounded-circle" alt="Profile Image" style="width:100px; height:100px; object-fit:cover" />
+                        <div class="small text-white mt-2">Admin Panel</div>
+                    </div>
+                </div>
+                <a class="nav-link" asp-controller="Main" asp-action="Index" style="color:azure">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-house-crack" style="color:white"></i></div>
+                    Main
+                </a>
+                <div class="sb-sidenav-menu-heading" style="color:wheat">Books & Categories</div>
+                <a class="nav-link" asp-controller="Categories" asp-action="Index" style="color:azure">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-list" style="color:white"></i></div>
+                    Category Management
+                </a>
+                <a class="nav-link" asp-controller="Books" asp-action="Index" style="color:azure">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-book-open" style="color:white"></i></div>
+                    Books Management
+                </a>
+                <div class="sb-sidenav-menu-heading" style="color:wheat">Users & Authors</div>
+                <a class="nav-link" asp-controller="AppUsers" asp-action="Index" style="color:azure">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-users" style="color:white"></i></div>
+                    User Management
+                </a>
+                <a class="nav-link" asp-controller="Authors" asp-action="Index" style="color:azure">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-user" style="color:white"></i></div>
+                    Authors Management
+                </a>
+            </div>
+        </div>
+        <div class="sb-sidenav-footer">
+            <div class="small">Logged in as:</div>
+            Start Bootstrap
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{7FECD46A-A338-4AF6-8305-2A428EED734B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebUI", "WebUI", "{764A6588-66AA-4585-886A-C6786D08D03E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxStore", "LuxStore\LuxStore.csproj", "{CF95B846-2D99-496C-ACE5-F47D68B3B3B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxStore.DataAccessLayer", "Data\LuxStore.DataAccessLayer\LuxStore.DataAccessLayer.csproj", "{52238A67-AC2D-4B3F-BD1F-211FF94AD15E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuxStore.EntityLayer", "Models\LuxStore.EntityLayer\LuxStore.EntityLayer.csproj", "{DF2E8349-E2D2-47E3-9A59-4DCD4E70C75D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF95B846-2D99-496C-ACE5-F47D68B3B3B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF95B846-2D99-496C-ACE5-F47D68B3B3B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF95B846-2D99-496C-ACE5-F47D68B3B3B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF95B846-2D99-496C-ACE5-F47D68B3B3B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52238A67-AC2D-4B3F-BD1F-211FF94AD15E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52238A67-AC2D-4B3F-BD1F-211FF94AD15E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52238A67-AC2D-4B3F-BD1F-211FF94AD15E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52238A67-AC2D-4B3F-BD1F-211FF94AD15E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF2E8349-E2D2-47E3-9A59-4DCD4E70C75D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF2E8349-E2D2-47E3-9A59-4DCD4E70C75D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF2E8349-E2D2-47E3-9A59-4DCD4E70C75D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF2E8349-E2D2-47E3-9A59-4DCD4E70C75D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CF95B846-2D99-496C-ACE5-F47D68B3B3B2} = {764A6588-66AA-4585-886A-C6786D08D03E}
+		{52238A67-AC2D-4B3F-BD1F-211FF94AD15E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{DF2E8349-E2D2-47E3-9A59-4DCD4E70C75D} = {7FECD46A-A338-4AF6-8305-2A428EED734B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B833EEC-475C-4970-BD7A-F8C93E19655E}
+	EndGlobalSection
+EndGlobal
